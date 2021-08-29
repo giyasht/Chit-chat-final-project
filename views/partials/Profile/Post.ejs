@@ -1,0 +1,32 @@
+<div class="profile-content">
+  <div class="profile-content-top">
+    <div class="profile-post-content">
+      <div class="post-form profile-post-form-add-margin">
+        <div class="post-form-l1">
+          <img
+            class="avatar avatar-margin"
+            src="<%= `users/${user.userPhoto}` %>"
+            alt="profileD.png not found!"
+          />
+          <button class="post-input" aria-label="post" type="button">
+            What's on your mind, <%= user.firstname%> ?
+          </button>
+          <hr style="color: white" />
+          <div class="row">
+            <div class="col-4">
+              <a href="#" class="btn-with-a"> Photo/Video </a>
+            </div>
+            <div class="col-4">
+              <a href="#" class="btn-with-a"> Tag Friends </a>
+            </div>
+            <div class="col-4">
+              <a href="#" class="btn-with-a"> Feeling/Activity </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="profile-post-list"><%- include('../postListContent.ejs') %></div>
+</div>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link href="/css/chatting.css" rel="stylesheet" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+    crossorigin="anonymous"
+    />
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/javascripts/axios.js"></script>
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Video Chat Room</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg  bg-secondary fixed-top">
+        
+      <button id="sidebarCollapse" class="btn navbar-btn" >
+          <i class="fa fa-bars"></i>
+      </button>
+      <a class="navbar-brand" href="/chatting">
+          <i class="fa fa-comments" style="color: white;"></i>
+          <i class="fa fa-video" style="color: white;"></i>
+          <h3 id="logo">Chatting page</h3>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                  <a class="nav-link" id="link" href="/chatting">
+                      <i class="fa fa-sign-out-alt"></i>
+                      Leave Chat
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </nav>
+
+  <div class="wrapper fixed-left">
+      
+      <nav id="sidebar" class="shadow-sm rounded">
+          <div class="sidebar-header text-center">
+              <h5><i class="fa fa-user mr-2"></i>Users Connected</h5>
+          </div>
+          <ul id="users">
+          </ul>
+      </nav>
+      
+      
+      <div id="content">
+          <h2 class="text-center" id="room-name"></h2>
+            <main >
+              <div class="chat-messages ml-2"></div>
+          </main>
+          <div class="chat-form-container">
+              <form id="chat-form">
+                  <input id="msg" type="text" placeholder="Enter Message" required autocomplete="off" />
+                  <button class="btn ml-2" style="color: white; border: white solid;">
+                      <div class="send-icon">
+                      <i class="fas fa-paper-plane "></i> 
+                      Send
+                  </div>
+                  </button>
+              </form>
+          </div>
+      </div>
+
+  </div>
+    <p id="room_name" style="display: none"><%= room %></p>
+    <script defer src="/javascripts/chat.js"></script>
+    <script src="/javascripts/socket.js"></script>
+  </body>
+</html>

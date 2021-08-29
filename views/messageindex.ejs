@@ -1,0 +1,52 @@
+<%- include('partials/header.ejs') %>
+  <div class="container" style="
+    margin-top: 100px;
+    border: 2px solid white;
+    height: 80vh;
+    width: 75vw;
+    display: flex;
+    padding: 10px;
+  ">
+    <div class="col-lg-3" style="height: 100%; width: 22vw">
+      <div style="margin: 3vh; height: 65vh; overflow-y: scroll; border-radius: 10px">
+        <% var roomname; %>
+          <% for(var list of friendlist) { %>
+            <div style="height: 70px">
+              <% if(user.username < list.username){ roomname=user.username + '*' + list.username; } else {
+                roomname=list.username + '*' + user.username; } %>
+                <a href="/chatting/<%=roomname%>"><img class="avatar avatar-margin dis-inline-block"
+                    src="<%= `users/${list.userPhoto}` %>" alt="" />
+                  <span class="dis-inline-block show-username">
+                    <%= list.username %>
+                  </span></a>
+            </div>
+            <% }%>
+              <p style="color:white; position: sticky; top:100%;">You can add more friends by seeing some friend suggestions in newsfeed page.</p>
+      </div>
+    </div>
+    <div class="col-lg-9" style="color: white; max-width: 51vw">
+      <div class="container msg-icon" style="margin-left: 40%; margin-top: 20%">
+        <i class="fa fa-comments-o" style="font-size: 100px"></i>
+      </div>
+      <div class="container msg-content" style="
+        padding-left: 20%;
+        font-size: 20px;
+        padding-right: 20%;
+        margin-top: 20px;
+      ">
+        <p>
+          Send private photos and messages to your friend. Just click on friend on
+          your friend's name or profile picture to chat with him.
+        </p>
+      </div>
+      <% var num = Math.floor((Math.random() * 10000) + 1000); %>
+      <% var roomid = user.username+num; %>
+      <a href="/chatting/group/<%=roomid%>" style="
+      padding-left: 35%;
+      font-size: 20px;
+      padding-right: 20%;
+      margin-top: 20px;
+    "><button type="button" class="btn btn-primary">Start Group conversation</button></a>
+    </div>
+  </div>
+  <%- include('partials/footer.ejs') %>
